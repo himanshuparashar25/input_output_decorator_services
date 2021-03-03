@@ -1,0 +1,106 @@
+<!-- Binding Works -->
+
+<button (click) = "onClick($event)">Greet</button>
+<button (click)="greeting='Wldcome sahju'">Greet</button>
+
+<!-- Template Referance Variable -->
+<input #myInput type="text">
+<button (click) = "logMessage(myInput)">Log</button>
+
+<!-- Two Way Binding -->
+<input [(ngModel)] = "name" type="text">
+{{name}}
+
+<!-- NgIf -->
+<h2 *ngIf = "displayName">
+    CodeEvoultion
+</h2>
+
+<h2 *ngIf = "displayName1; else elseBlock">
+    CodeEvoultion
+</h2>
+
+<ng-template #elseBlock>
+    <h2>
+        Name is Hidden
+    </h2>
+</ng-template>
+
+<h2 *ngIf = "displayName2; then thenBlock; else elseBlock">
+    
+</h2>
+
+<ng-template #thenBlock>
+    <h2>
+        NameChops
+    </h2>
+</ng-template>
+
+<ng-template #elseBlock>
+    <h2>
+        Name is Hidden
+    </h2>
+</ng-template>
+
+<!-- ngSwitch -->
+<div [ngSwitch] = "colors1">
+    <div *ngSwitchCase="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'green'">You picked green color</div>
+    <div *ngSwitchDefault>Please pick again</div>
+</div>
+
+<!-- ngFor -->
+<div *ngFor = "let color of colors; index as i; first as f; last as l; odd as o; even as e">
+    <h2>{{e}} {{o}} {{l}} {{f}} {{i}} {{color}}</h2>
+</div>
+
+<!-- Component Interaction -->
+<app-io (childEvent)= "message=$event" [parentData]="nameInteration"></app-io> 
+
+<h1>
+    {{message}}
+</h1>
+
+<!-- Pipes -->
+<h2>{{pipesname | lowercase}}</h2>
+<h2>{{pipesname | uppercase}}</h2>
+<h2>{{pipesname | titlecase}}</h2>
+<h2>{{pipesname | slice:3:6}}</h2>
+<h2>{{pipesperson | json}}</h2>
+
+<h2>{{5.678 | number: '1.2-3'}}</h2>
+<h2>{{5.678 | number: '3.4-5'}}</h2>
+<h2>{{5.678 | number: '3.1-2'}}</h2>
+
+<h2>{{ 0.25 | percent}}</h2>
+
+<h2>{{ 0.25 | currency}}</h2>
+<h2>{{ 0.25 | currency : 'GBP'}}</h2>
+<h2>{{ 0.25 | currency : 'INR'}}</h2>
+<h2>{{ 0.25 | currency : 'INR' : 'code'}}</h2>
+
+<h2>{{ pipesdate }}</h2>
+<h2>{{ pipesdate | date: 'short' }}</h2>
+<h2>{{ pipesdate | date: 'shortDate' }}</h2>
+<h2>{{ pipesdate | date: 'shortTime' }}</h2>
+
+<!-- Services -->
+    <!-- A class with a specific purpose 
+        1) Share Data
+        2) Implement Application Logic
+        3) External Interaction 
+        
+        Naming Convention - .service.ts -->
+
+<app-employee-list></app-employee-list>
+<app-employee-detail></app-employee-detail>
+
+    <!-- Principles -->
+    <!-- Do not repeat yourself (DRY)
+    Single responsibility principle -->
+
+<!-- Dependency Injection -->
+
+
+    
